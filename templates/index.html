@@ -1,0 +1,179 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>MaduraiNeeds</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="" />
+
+<!-- css -->
+<link href="{% static 'css/bootstrap.min.css'%}" rel="stylesheet" />
+<link rel="stylesheet" href="{% static 'simple-line-icons/css/simple-line-icons.css'%}">
+<link href="{% static 'css/fancybox/jquery.fancybox.css'%}" rel="stylesheet"> 
+<link href="{% static 'css/flexslider.css" rel="stylesheet'%}" />
+<link href="{% static 'js/owl-carousel/owl.carousel.css'%}" rel="stylesheet">
+<link href="{% static 'css/style.css'%}" rel="stylesheet" />
+<link href="{% static 'css/navbar.css'%}" rel="stylesheet" />
+
+
+
+</head>
+<body>
+<div id="wrapper" class="home-page">
+	<nav>
+		<input id="nav-toggle" type="checkbox">
+		<div class="logo">MADURAI<strong>NEEDS</strong></div>
+		<ul class="links">
+			<li><a href="{% url 'index' %}">Home</a></li>
+			<li><a href="{% url 'about' %}">About Us</a></li>
+			<li><a href="{% url 'register' %}">Login/Sign up</a></li>
+		</ul>
+		<label for="nav-toggle" class="icon-burger">
+			<div class="line"></div>
+			<div class="line"></div>
+			<div class="line"></div>
+		</label>
+	</nav>
+	
+	<section id="banner">
+		<<div id="main-slider" class="flexslider">
+            <ul class="slides">
+              <li>
+                <img src="{% static 'img/slides/1.jpg'%}" width=100% height=auto alt="flexslider" /> 
+                <div class="flex-caption">
+					<h3>Home Services</h3>
+                </div> 
+              </li>
+            </ul>
+        </div>
+		
+
+ 
+	</section>
+	<section class="jumbobox">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<div><h1>Services</h1>One-stop solution for all your home care and appliance maintenance needs at <strong>MADURAI</strong>. You can opt for cleaning services which include deep cleaning, bathroom cleaning, kitchen cleaning, sofa and carpet cleaning. We also have enlisted professionals who offer pest control, electrical repairs, plumbing services, appliance fixing and repair.</div>
+		</div>
+	</div>
+	</section>
+	
+	
+	<section id="content">
+	
+	
+	<div class="container">
+			<div class="row">
+		<div class="skill-home"> <div class="skill-home-solid clearfix"> 
+		<div class="col-md-4 text-center">
+		<div class="box"> 
+		<span class="icons c1"><i class="icon-settings icons"></i></span> <div class="box-area">
+		<h3>Plumber</h3> <p>Pipe leakage problems at home? We offer quickly accessible solutions to all water problems in residential area around the clock.</p> <p><a href="{% url 'plumber' %}">Learn More</a></p></div>
+		</div></div>
+		<div class="col-md-4 text-center"> 
+		<div class="box"> 
+		<span class="icons c2"><i class="icon-login icons"></i></span> <div class="box-area">
+		<h3>Electrician</h3> <p>We connect you to professional electrician services at all times anywhere in Madurai, from replacing a fuse to changing the wiring.</p> <p><a href="{% url 'electrician' %}">Learn More</a></p></div>
+		</div></div>
+		<div class="col-md-4 text-center"> 
+		<div class="box"> 
+		<span class="icons c3"><i class="icon-user icons"></i></span> <div class="box-area">
+		<h3>Home Cleaning</h3> <p> Get home cleaning services such as deep cleaning, kitchen cleaning, bathroom cleaning done at right time from professional cleaners.</p> <p><a href="{% url 'cleaner' %}">Learn More</a></p></div>
+		</div></div>
+		</div></div></div>
+		</div> 
+	 
+
+	</div>
+	</section> 
+		 
+	
+		<section class="aboutUs">
+	<div class="container">
+		<div class="row">
+		<div class="col-md-6"><img src="{% static 'img/img1.png'%}" class="img-center" alt="" /></div>
+			<div class="col-md-6">
+				<div><h2>Our Team</h2>
+				<p>MaduraiNeeds brings the best of Home Maintenance and Repair services to the customer, right where they are, all through an easy to use platform.</p>
+				<p>Want your home cleaned or get your pipes fixed? Just tell us about the task you’d like to get done, get a fair budget for the job well done from our professional and certified Taskers.</p>
+				</div>
+				<br/>
+			</div>
+		</div> 
+	
+	</div>
+	</section> 
+	 
+	<footer>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6">
+				<div class="widget">
+					<h5 class="widgetheading">Our Contact</h5>
+					<address>
+					<strong>MaduraiNeeds company Inc</strong><br>
+					Theppakulam Main road,<br>
+					 Pin-625009 Madurai.</address>
+					<p>
+						<i class="icon-phone"></i> 9876543210 <br>
+						<i class="icon-envelope-alt"></i> maduraineeds@gmail.com
+					</p>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="widget">
+					<h5 class="widgetheading">Quick Links</h5>
+					<ul class="link-list">
+						<li><a href="#">Latest Events</a></li>
+						<li><a href="#">Terms and conditions</a></li>
+						<li><a href="#">Privacy policy</a></li>
+						<li><a href="#">Career</a></li>
+						<li><a href="#">Contact us</a></li>
+					</ul>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+	<div id="sub-footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6">
+					<div class="copyright">
+						<p>
+							<span>&copy; MaduraiNeeds 2021 All right reserved.
+						</p>
+					</div>
+				</div>
+				<div class="col-lg-6">
+					<ul class="social-network">
+						<li><a href="#" data-placement="top" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+						<li><a href="#" data-placement="top" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+						<li><a href="#" data-placement="top" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+						<li><a href="#" data-placement="top" title="Pinterest"><i class="fa fa-pinterest"></i></a></li>
+						<li><a href="#" data-placement="top" title="Google plus"><i class="fa fa-google-plus"></i></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	</footer>
+</div>
+<a href="#" class="scrollup"><i class="fa fa-angle-up active"></i></a>
+<script src="js/jquery.js"></script>
+<script src="js/jquery.easing.1.3.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.fancybox.pack.js"></script>
+<script src="js/jquery.fancybox-media.js"></script> 
+<script src="js/portfolio/jquery.quicksand.js"></script>
+<script src="js/portfolio/setting.js"></script>
+<script src="js/jquery.flexslider.js"></script>
+<script src="js/animate.js"></script>
+<script src="js/custom.js"></script>
+<script src="js/owl-carousel/owl.carousel.js"></script>
+<script src="js/navbar.js"></script>
+
+</body>
+</html>

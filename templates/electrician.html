@@ -1,0 +1,242 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>MaduraiNeeds</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="" />
+
+<!-- css -->
+<link href="{% static 'css/bootstrap.min.css'%}" rel="stylesheet" />
+<link href="{% static 'css/bootstrap-responsive.min.css'%}" rel="stylesheet">
+<link href="{% static 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700'%}" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'https://use.fontawesome.com/releases/v5.5.0/css/all.css'%}" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+<link rel="stylesheet" href="{% static 'simple-line-icons/css/simple-line-icons.css'%}">
+<link href="{% static 'css/fancybox/jquery.fancybox.css'%}" rel="stylesheet"> 
+<link href="{% static 'css/flexslider.css" rel="stylesheet'%}" />
+<link href="{% static 'js/owl-carousel/owl.carousel.css'%}" rel="stylesheet">
+<link href="{% static 'css/style.css'%}" rel="stylesheet" />
+<link href="{% static 'css/navbar.css'%}" rel="stylesheet" />
+
+
+
+</head>
+<body>
+
+<div id="wrapper" class="home-page">
+	<nav>
+		<input id="nav-toggle" type="checkbox">
+		<div class="logo">MADURAI<strong>NEEDS</strong></div>
+		<ul class="links">
+			<li><a href="{% url 'index' %}">Home</a></li>
+			<li><a href="{% url 'about' %}">About Us</a></li>
+			<li><a href="{% url 'register' %}">Login/Sign up</a></li>
+		</ul>
+		<label for="nav-toggle" class="icon-burger">
+			<div class="line"></div>
+			<div class="line"></div>
+			<div class="line"></div>
+		</label>
+	</nav>
+   
+    
+    <div class="bg-img">
+      <div class="heading">
+        <h1 style="color: #055999;"><strong>ELECTRICIAN</strong></h1>
+      </div>
+      <div class="row">
+        <div class="span6">
+        <form action="/">
+          <h1>Book here</h1>
+          <div class="item">
+            <p>Name</p>
+            <input type="text" name="name"/>
+          </div>
+          <div class="item">
+            <p>Phone Number</p>
+            <input type="text" name="name"/>
+          </div>
+          <div class="item">
+            <p>Address</p>
+            <input type="text" name="name" placeholder="Street address"/>
+            <div class="city-item">
+               <select>
+                <option value="">Country</option>
+                <option value="1">Russia</option>
+                <option value="2">Germany</option>
+                <option value="3">France</option>
+                <option value="4" selected>Armenia</option>
+                <option value="5">USA</option>
+                <input type="text" name="name" placeholder="Madurai" />
+                <input type="text" name="name" placeholder="Postal / Zip code" />
+
+              </select>
+            </div>
+          </div>
+          <div class="btn-block">
+            <button type="submit" href="/">SEND</button>
+          </div>
+        </form>
+        </div>
+      
+      <div class="span6">
+        <form action="/">
+          <h1>Book here</h1>
+          <div class="item">
+            <p>Name</p>
+            <input type="text" name="name"/>
+          </div>
+          <div class="item">
+            <p>Phone Number</p>
+            <input type="text" name="name"/>
+          </div>
+          <div class="item">
+            <p>Address</p>
+            <input type="text" name="name" placeholder="Street address"/>
+            <div class="city-item">
+               <select>
+                <option value="">Country</option>
+                <option value="1">Russia</option>
+                <option value="2">Germany</option>
+                <option value="3">France</option>
+                <option value="4" selected>Armenia</option>
+                <option value="5">USA</option>
+                <input type="text" name="name" placeholder="Madurai" />
+                <input type="text" name="name" placeholder="Postal / Zip code" />
+
+              </select>
+            </div>
+          </div>
+          <div class="btn-block">
+            <button type="submit" href="/">SEND</button>
+          </div>
+        </form>
+      </div>
+    </div>
+          
+          
+          
+    
+  </div>
+    
+    <style>
+        .bg-img{
+            background: url("{% static 'img/slides/blurbg.jpg'%}");
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+            
+          }
+          .heading{
+            position: absolute;
+            top: 15%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        
+          }
+           
+           div, form, input, select, p { 
+            padding: 0;
+            margin: 0;
+            outline: none;
+            font-family: Roboto, Arial, sans-serif;
+            font-size: 14px;
+            color: #666;
+            line-height: 22px;
+            
+            }
+            h1 {
+            margin: 15px 0;
+            font-weight: 400;
+            }
+            
+            form {
+            max-width: 50%;
+            padding: 20px;
+            background: #fff;
+            box-shadow: -1px 4px 28px 0px rgb(6, 35, 121);
+            position: relative;
+            top: 160px;
+            left: 80px;
+            }
+            input, select, textarea {
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            }
+            input {
+            width: calc(100% - 10px);
+            padding: 5px;
+            }
+            select {
+            width: 100%;
+            padding: 7px 0;
+            background: transparent;
+            }
+            textarea {
+            width: calc(100% - 6px);
+       }
+            .item {
+            position: relative;
+            margin: 10px 0;
+            }
+            .item:hover p, .item:hover i {
+            color: #095484;
+            }
+            input:hover, select:hover, textarea:hover {
+            box-shadow: 0 0 5px 0 #095484;
+            }
+            .btn-block {
+            margin-top: 20px;
+            text-align: center;
+            }
+            button {
+            width: 150px;
+            padding: 10px;
+            border: none;
+            -webkit-border-radius: 5px; 
+            -moz-border-radius: 5px; 
+            border-radius: 5px; 
+            background-color: #095484;
+            font-size: 16px;
+            color: #fff;
+            cursor: pointer;
+            }
+            button:hover {
+            background-color: #0666a3;
+            }
+            @media (min-width: 568px) 
+            {
+            .name-item, .city-item {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            }
+            
+            .name-item input, .city-item input {
+            width: calc(50% - 20px);
+            }
+            .city-item select {
+            width: calc(50% - 8px);
+            }
+          }
+    </style>
+</div>
+<a href="#" class="scrollup"><i class="fa fa-angle-up active"></i></a>
+<script src="js/jquery.js"></script>
+<script src="js/jquery.easing.1.3.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.fancybox.pack.js"></script>
+<script src="js/jquery.fancybox-media.js"></script> 
+<script src="js/portfolio/jquery.quicksand.js"></script>
+<script src="js/portfolio/setting.js"></script>
+<script src="js/jquery.flexslider.js"></script>
+<script src="js/animate.js"></script>
+<script src="js/custom.js"></script>
+<script src="js/owl-carousel/owl.carousel.js"></script>
+<script src="js/navbar.js"></script>
+
+</body>
+</html>
+	
