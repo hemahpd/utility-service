@@ -229,7 +229,7 @@ display:none;
 	padding:0;
 	position: relative;
 	zoom:1;
-	background: #055999;
+}
 .flex-direction-nav .flex-prev{
 left:0px; 
 }
@@ -518,7 +518,7 @@ margin: 10px 0 0 0;
 /* page headline
 ==================================== */
 
-#inner-headline{background: #e4e3df url("static/img/greybg.jpg") top right;position: relative;margin: 0;padding: 24px 0;background-size: 39%;background-repeat: no-repeat;}
+#inner-headline{background: #e4e3df  top right;position: relative;margin: 0;padding: 24px 0;background-size: 39%;background-repeat: no-repeat;}
 #inner-headline:before{content:'';position: absolute;/* background: rgba(0, 0, 0, 0.42); */z-index: 1;top: 0;left: 0;right: 0;bottom: 0;}
 
 #inner-headline h2.pageTitle{

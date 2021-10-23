@@ -3,20 +3,10 @@ from .models import NewUser
 from django.contrib import messages
 from django.contrib.auth.models import auth
 
+
+
 # Create your views here.
-def login(request):
-    if request.method=='POST':
-        email=request.POST['email']
-        pwd=request.POST['pwd']
-        user=auth.authenticate(email=email,pwd=pwd)
-        if user is not None:
-            auth.login(request,user)
-            return redirect('/')
-        else:
-            messages.info(request,'Invalid credentials')
-            return redirect('login')
-    else:
-        return render(request,'login.html')
+
 
 
 def register(request):
@@ -34,3 +24,40 @@ def register(request):
                 return redirect('login')
     else:
         return render(request,'register.html')
+
+def login(request):
+    if request.method=="POST":
+        try:
+            Userdetails=NewUser.objects.get(email=request.POST['email'],pwd=request.POST['pwd'])
+            user=auth.authenticate(email=request.POST['email'],pwd=request.POST['pwd'])
+            request.session['username']=Userdetails.username
+            return render(request,'index.html')
+        except NewUser.DoesNotExist as e:
+            messages.success(request,'Username/Password Invalid')
+    return render(request,'login.html')
+
+def logout(request):
+    try:
+        del request.session['username']
+    except:
+        return render(request,'index.html')
+    return render(request,'index.html')
+
+
+def booksuccess(request):
+    return render(request,'booksuccess.html')
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+       

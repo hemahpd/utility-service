@@ -1,0 +1,240 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>MaduraiNeeds</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="" />
+
+<!-- css -->
+<link href="{% static 'css/bootstrap.min.css'%}" rel="stylesheet" />
+<link href="{% static 'css/bootstrap-responsive.min.css'%}" rel="stylesheet">
+<link href="{% static 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700'%}" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'https://use.fontawesome.com/releases/v5.5.0/css/all.css'%}" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+<link rel="stylesheet" href="{% static 'simple-line-icons/css/simple-line-icons.css'%}">
+<link href="{% static 'css/fancybox/jquery.fancybox.css'%}" rel="stylesheet"> 
+<link href="{% static 'css/flexslider.css" rel="stylesheet'%}" />
+<link href="{% static 'js/owl-carousel/owl.carousel.css'%}" rel="stylesheet">
+<link href="{% static 'css/style.css'%}" rel="stylesheet" />
+<link href="{% static 'css/navbar.css'%}" rel="stylesheet" />
+<link href="{% static 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700'%}" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'https://use.fontawesome.com/releases/v5.5.0/css/all.css'%}" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+<link rel="stylesheet" href="{% static 'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css'%}"
+integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="{% static 'https://use.fontawesome.com/releases/v5.8.2/css/all.css'%}">
+<!-- Google Fonts -->
+<link rel="stylesheet" href="{% static 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap'%}">
+<!-- Bootstrap core CSS -->
+<link href="{% static 'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css'%}" rel="stylesheet">
+<!-- Material Design Bootstrap -->
+<link href="{% static 'https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css'%}" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css'%}" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">  
+
+
+
+</head>
+<body style="background-color: rgb(211,211,211);">
+
+<div id="wrapper" class="home-page">
+	<nav>
+		<input id="nav-toggle" type="checkbox">
+		<div class="logo">MADURAI<strong>NEEDS</strong></div>
+		<ul class="links">
+			<li><a href="{% url 'index' %}">Home</a></li>
+			<li><a href="{% url 'about' %}">About Us</a></li>
+			{% if request.session.username%}
+			<li style="color:white; font-size:x-large"><strong>Hello,{{request.session.username}}</strong></li>
+            <li><a href="{% url 'booking' %}">Bookings</a></li>
+			<li><a href="{% url 'logout' %}">Logout</a></li>
+			{%else%}
+            <li><a href="{% url 'register' %}">Login/Sign up</a></li>
+			{% endif %}
+		</ul>
+		<label for="nav-toggle" class="icon-burger">
+			<div class="line"></div>
+			<div class="line"></div>
+			<div class="line"></div>
+		</label>
+	</nav>
+   
+    
+    <div class="bg-img">
+      <div class="heading">
+        <h1 style="color: #055999;"><strong>Your Bookings</strong></h1>
+      </div>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      
+      <br>
+      
+      {% for d in value1 %}
+      {% if request.session.username == d.name%}
+      <div class="container">
+        <div class="jumbotron img-shadow" style="background-color: white; left:10px; font-family: Roboto, Arial, sans-serif;">
+          <h3>Service:{{d.specialisation}}</h3>
+          <p>Address:{{d.addressline1}}</p>
+          <p>{{d.mainarea}}</p>
+          <p>{{d.pincode}}</p>
+          
+             
+        </div>
+      </div>
+      {%endif%}
+      {%endfor%}
+    </div>
+    
+    
+    <style>
+      .body{
+            background-image: url("{% static 'img/slides/blurbg.jpg'%}");
+            height: 100%;
+            width: 100%;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat; 
+
+      }
+        /*.bg-img{
+            background: url("{% static 'img/slides/blurbg.jpg'%}");
+            height: 100%;
+            width: 100%;
+            background-size: 100% 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            
+          }*/
+          .img-shadow{
+            
+            box-shadow: -1px 4px 28px 0px rgb(18, 18, 19)
+          }
+          .heading{
+            position: absolute;
+            top: 15%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        
+          }
+           
+           div, form, input, select, p { 
+            padding: 0;
+            margin: 0;
+            outline: none;
+            font-family: Roboto, Arial, sans-serif;
+            font-size: 14px;
+            color: #666;
+            line-height: 22px;
+            
+            }
+            h1 {
+            margin: 15px 0;
+            font-weight: 400;
+            }
+            .ratebox{
+            max-width: 90%;
+            width: 500px;
+            padding: 20px;
+            height: 500px;
+            background: #fff;
+            box-shadow: -1px 4px 28px 0px rgb(18, 18, 19);
+            position: relative;
+            top: 140px;
+            left: 10px;
+            }
+            
+           form {
+            max-width: 85%;
+            padding: 20px;
+            background: #fff;
+            box-shadow: -1px 4px 28px 0px rgb(18, 18, 19);
+            position: relative;
+            top: 160px;
+            left: 10px;
+            }
+            
+            
+            input, select, textarea {
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            }
+            input {
+            width: calc(100% - 10px);
+            padding: 5px;
+            }
+            select {
+            width: 100%;
+            padding: 7px 0;
+            background: transparent;
+            }
+            textarea {
+            width: calc(100% - 6px);
+       }
+            .item {
+            position: relative;
+            margin: 10px 0;
+            }
+            .item:hover p, .item:hover i {
+            color: #095484;
+            }
+            input:hover, select:hover, textarea:hover {
+            box-shadow: 0 0 5px 0 #095484;
+            }
+            .btn-block {
+            margin-top: 20px;
+            text-align: center;
+            }
+            button {
+            width: 150px;
+            padding: 10px;
+            border: none;
+            -webkit-border-radius: 5px; 
+            -moz-border-radius: 5px; 
+            border-radius: 5px; 
+            background-color: #095484;
+            font-size: 16px;
+            color: #fff;
+            cursor: pointer;
+            }
+            button:hover {
+            background-color: #0666a3;
+            }
+            @media (min-width: 568px) 
+            {
+            
+            .name-item, .city-item {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            }
+            
+            .name-item input, .city-item input {
+            width: calc(50% - 20px);
+            }
+            .city-item select {
+            width: calc(50% - 8px);
+            }
+          }
+    </style>
+</div>
+<a href="#" class="scrollup"><i class="fa fa-angle-up active"></i></a>
+<script src="js/jquery.js"></script>
+<script src="js/jquery.easing.1.3.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.fancybox.pack.js"></script>
+<script src="js/jquery.fancybox-media.js"></script> 
+<script src="js/portfolio/jquery.quicksand.js"></script>
+<script src="js/portfolio/setting.js"></script>
+<script src="js/jquery.flexslider.js"></script>
+<script src="js/animate.js"></script>
+<script src="js/custom.js"></script>
+<script src="js/owl-carousel/owl.carousel.js"></script>
+<script src="js/navbar.js"></script>
+
+</body>
+</html>
+	

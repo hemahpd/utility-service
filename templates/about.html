@@ -24,7 +24,13 @@
 		<ul class="links">
 			<li><a href="{% url 'index' %}">Home</a></li>
 			<li><a href="{% url 'about' %}">About Us</a></li>
-			<li><a href="{% url 'register' %}">Login/Sign up</a></li>
+			{% if request.session.username%}
+			<li style="color:white; font-size:x-large"><strong>Hello,{{request.session.username}}</strong></li>
+			<li><a href="{% url 'booking' %}">Bookings</a></li>
+			<li><a href="{% url 'logout' %}">Logout</a></li>
+			{%else%}
+            <li><a href="{% url 'register' %}">Login/Sign up</a></li>
+			{% endif %}
 		</ul>
 		<label for="nav-toggle" class="icon-burger">
 			<div class="line"></div>
