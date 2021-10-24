@@ -13,10 +13,14 @@ def electrician(request):
         pincode=request.POST['pincode']
         mainarea=request.POST['mainarea']
         specialisation=request.POST['specialisation']
-        BookForm(name=name,specialisation=specialisation,phnno=phnno,addressline1=addressline1,pincode=pincode,mainarea=mainarea).save()
+        #BookForm(name=name,specialisation=specialisation,phnno=phnno,addressline1=addressline1,pincode=pincode,mainarea=mainarea).save()
         value=Worker.objects.filter(location=mainarea,specialisation=specialisation)
-        data=random.choice(value)
-        return render(request,'booksuccess.html',{'data':data})
+        if value.exists():
+            BookForm(name=name,specialisation=specialisation,phnno=phnno,addressline1=addressline1,pincode=pincode,mainarea=mainarea).save()
+            data=random.choice(value)
+            return render(request,'booksuccess.html',{'data':data})
+        else:
+            return render(request,'booksuccess.html')
        
     else:
         return render(request,'electrician.html')
@@ -32,10 +36,15 @@ def plumber(request):
         pincode=request.POST['pincode']
         mainarea=request.POST['mainarea']
         specialisation=request.POST['specialisation']
-        BookForm(name=name,specialisation=specialisation,phnno=phnno,addressline1=addressline1,pincode=pincode,mainarea=mainarea).save()
+        #BookForm(name=name,specialisation=specialisation,phnno=phnno,addressline1=addressline1,pincode=pincode,mainarea=mainarea).save()
         value=Worker.objects.filter(location=mainarea,specialisation=specialisation)
-        data=random.choice(value)
-        return render(request,'booksuccess.html',{'data':data})
+        if value.exists:
+            BookForm(name=name,specialisation=specialisation,phnno=phnno,addressline1=addressline1,pincode=pincode,mainarea=mainarea).save()
+            data=random.choice(value)
+            return render(request,'booksuccess.html',{'data':data})
+        else:
+            return render(request,'booksuccess.html')
+            
     else:
         return render(request,'plumber.html')
     
@@ -48,10 +57,15 @@ def cleaner(request):
         pincode=request.POST['pincode']
         mainarea=request.POST['mainarea']
         specialisation=request.POST['specialisation']
-        BookForm(name=name,specialisation=specialisation,phnno=phnno,addressline1=addressline1,pincode=pincode,mainarea=mainarea).save()
+        #BookForm(name=name,specialisation=specialisation,phnno=phnno,addressline1=addressline1,pincode=pincode,mainarea=mainarea).save()
         value=Worker.objects.filter(location=mainarea,specialisation=specialisation)
-        data=random.choice(value)
-        return render(request,'booksuccess.html',{'data':data})
+        if value.exists():
+            BookForm(name=name,specialisation=specialisation,phnno=phnno,addressline1=addressline1,pincode=pincode,mainarea=mainarea).save()
+            data=random.choice(value)
+            return render(request,'booksuccess.html',{'data':data})
+        else:
+            return render(request,'booksuccess.html')
+        
     else:
         return render(request,'cleaner.html')
 
@@ -61,10 +75,12 @@ def booking(request):
         return render(request,'booking.html',{'value1':value1})
 
 def cancelBooking(request):
-         cancel=BookForm.objects.last()
-         cancel.delete()
-         messages.success(request,'Booking cancelled successfully')
-         return render(request,'index.html')
+    if request.method=="POST":
+        cancel=BookForm.objects.last()
+        cancel.delete()
+        return render(request,'bookcancel.html')
+    else:
+        return render(request,"index.html")
          
 
 

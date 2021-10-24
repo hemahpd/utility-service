@@ -71,24 +71,35 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
     <br>
     <br>
     <br>
-    
+    {% if data%}
       <div class="container">
         <div class="jumbotron img-shadow" style="background-color: white; left:10px; font-family: Roboto, Arial, sans-serif;">
           <h3>BOOKING CONFIRMED</h3>
           <p>Name:{{data.wname}}</p>
           <p>Contact No:{{data.wphnno}}</p>
           <br>
-          <p>Our agent will contact you seen. Feel free to contact him in case of urgency.</p>
-          <!--<h3>Sorry for the inconvenience!</h3>
-          <p>Service not available not available at your preferred location at the moment.</p>
-          <p>Please try again later.</p>-->
+          <p>Our agent will contact you soon. Feel free to contact him in case of urgency.</p>
           <a href="{% url 'index' %}">CLOSE</a>
-          <!--<br>
-          <a href="{% url 'cancelBooking' %}">CANCEL NOW</a>-->
-          
-          
+          <br>
+          <br>
+          <form method="POST" action="{% url 'cancelBooking' %}">
+          <input type="submit" value="CANCEL NOW">
+        </form>
         </div>
       </div>
+      {%else%}
+      <div class="container">
+        <div class="jumbotron img-shadow" style="background-color: white; left:10px; font-family: Roboto, Arial, sans-serif;">
+          <h3>Sorry for the inconvenience!</h3>
+          <p>Service not available not available at your preferred location at the moment.</p>
+          <p>Please try again later.</p>
+          <a href="{% url 'index' %}">CLOSE</a>
+          </div>
+          </div>
+
+        {%endif%}
+        
+      
       
     <style>
         .heading{
