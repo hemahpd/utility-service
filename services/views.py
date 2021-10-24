@@ -1,5 +1,5 @@
 import random
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,HttpResponse
 from accounts.models import BookForm
 from worker.models import Worker
 from django.contrib import messages
@@ -17,6 +17,7 @@ def electrician(request):
         value=Worker.objects.filter(location=mainarea,specialisation=specialisation)
         data=random.choice(value)
         return render(request,'booksuccess.html',{'data':data})
+       
     else:
         return render(request,'electrician.html')
 
